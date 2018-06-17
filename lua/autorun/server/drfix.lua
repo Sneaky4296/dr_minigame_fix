@@ -2,6 +2,7 @@ local function setGrav()
   local mode = GAMEMODE
   if mode ~= "Deathrun" then
     RunConsoleCommand("sv_gravity", "600")
+    RunConsoleCommand("sv_airaccelerate", "10")
   end
   if mode =="Deathrun" then
     RunConsoleCommand("deathrun_round_limit", "5")
