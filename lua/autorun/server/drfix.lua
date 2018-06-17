@@ -1,5 +1,5 @@
 local function setConvars()
-  local mode = GAMEMODE
+  local mode = gmod.GetGamemode().Name
   if mode ~= "Deathrun" then
     RunConsoleCommand("sv_gravity", "600")
     RunConsoleCommand("sv_airaccelerate", "10")
