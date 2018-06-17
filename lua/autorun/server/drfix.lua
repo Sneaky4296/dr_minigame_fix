@@ -1,4 +1,4 @@
-local function setGrav()
+local function setConvars()
   local mode = GAMEMODE
   if mode ~= "Deathrun" then
     RunConsoleCommand("sv_gravity", "600")
@@ -16,5 +16,5 @@ local function gameVote( rounds )
     return true
   end
 end
-hook.Add("Initialize", "setGrav", setGrav)
+hook.Add("Initialize", "setConvars", setConvars)
 hook.Add("DeathrunStartMapvote", "triggerKMapVote", gameVote)
