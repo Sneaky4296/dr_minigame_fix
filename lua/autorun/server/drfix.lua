@@ -4,8 +4,16 @@ local function setGrav()
     RunConsoleCommand("sv_gravity", "600")
   end
   if mode =="Deathrun" then
-    RunConsoleCommand("deathrun_round_limit", "20")
+    RunConsoleCommand("deathrun_round_limit", "5")
     RunConsoleCommand("sv_gravity", "800")
   end
 end
-hook.Add("PostGamemodeLoaded", "setGrav", setGrav)
+
+local function gameVote( rounds )
+  if rounds >= 5 then
+    MAPVOTE.setState("VoteGamemode")
+    return true
+  end
+end
+hook.Add("Initialize", "setGrav", setGrav)
+hook.Add("DeathrunStartMapvote", "triggerKMapVote", gameVote)
